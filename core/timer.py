@@ -10,7 +10,6 @@ class Timer:
 
     def __init__(self):
         self.remaining_seconds = TIMER_DURATION_MINUTES * 60
-        self.total_seconds = TIMER_DURATION_MINUTES * 60
         self.is_running = False
         self.on_tick_callback: Optional[Callable[[str], None]] = None
         self.on_complete_callback: Optional[Callable] = None
@@ -23,7 +22,7 @@ class Timer:
             tick_function: Function to call for each tick (e.g., root.after)
         """
         self.is_running = True
-        self.remaining_seconds = self.total_seconds
+        self.remaining_seconds = TIMER_DURATION_MINUTES * 60
         self._tick_function = tick_function
         self._tick()
 
@@ -33,24 +32,7 @@ class Timer:
 
     def reset(self) -> None:
         """Reset the timer to initial duration."""
-        self.remaining_seconds = self.total_seconds
-
-    def set_duration_minutes(self, minutes: int) -> None:
-        """Set the timer duration in minutes.
-        
-        Args:
-            minutes: Duration in minutes
-        """
-        self.total_seconds = minutes * 60
-        self.remaining_seconds = self.total_seconds
-
-    def get_elapsed_seconds(self) -> int:
-        """Get the elapsed time in seconds.
-        
-        Returns:
-            Elapsed seconds
-        """
-        return self.total_seconds - self.remaining_seconds
+        self.remaining_seconds = TIMER_DURATION_MINUTES * 60
 
     def _tick(self) -> None:
         """Internal tick method called every second."""

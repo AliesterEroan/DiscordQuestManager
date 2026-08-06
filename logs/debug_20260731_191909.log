@@ -1,0 +1,177 @@
+2026-07-31 19:19:09,231 - INFO - ============================================================
+2026-07-31 19:19:09,231 - INFO - Discord Quest Manager Debug Build
+2026-07-31 19:19:09,231 - INFO - Log file: C:\Users\user\OneDrive\Desktop\DiscordQuestManager\version 1.1.0\logs\debug_20260731_191909.log
+2026-07-31 19:19:09,231 - INFO - ============================================================
+2026-07-31 19:19:09,231 - INFO - 
+============================================================
+2026-07-31 19:19:09,232 - INFO - Starting Debug Tests
+2026-07-31 19:19:09,232 - INFO - ============================================================
+2026-07-31 19:19:09,232 - INFO - 
+--- Testing Imports ---
+2026-07-31 19:19:09,243 - INFO - [PASS] tkinter import: 
+2026-07-31 19:19:09,245 - INFO - [PASS] config.constants import: 
+2026-07-31 19:19:09,248 - INFO - [PASS] core.quest_manager import: 
+2026-07-31 19:19:09,252 - INFO - [PASS] core.favorites_manager import: 
+2026-07-31 19:19:09,253 - INFO - [PASS] core.settings_manager import: 
+2026-07-31 19:19:09,280 - INFO - [PASS] core.theme_manager import: 
+2026-07-31 19:19:09,281 - INFO - [PASS] core.dummy_registry import: 
+2026-07-31 19:19:09,285 - INFO - [PASS] core.discord_checker import: 
+2026-07-31 19:19:09,285 - INFO - [PASS] core.search import: 
+2026-07-31 19:19:09,286 - INFO - [PASS] core.timer import: 
+2026-07-31 19:19:09,287 - INFO - [PASS] core.cleanup import: 
+2026-07-31 19:19:09,318 - INFO - [PASS] core.database import: 
+2026-07-31 19:19:09,364 - INFO - [PASS] ui.main_window import: 
+2026-07-31 19:19:09,365 - INFO - [PASS] ui.pixel_progress_bar import: 
+2026-07-31 19:19:09,365 - INFO - [PASS] ui.pixel_button import: 
+2026-07-31 19:19:09,366 - INFO - [PASS] ui.progress_bar import: 
+2026-07-31 19:19:09,366 - INFO - [PASS] ui.settings_dialog import: 
+2026-07-31 19:19:09,366 - INFO - [PASS] ui.about_dialog import: 
+2026-07-31 19:19:09,369 - INFO - [PASS] ui.dummy_window import: 
+2026-07-31 19:19:09,369 - INFO - [PASS] utils.icon_handler import: 
+2026-07-31 19:19:09,369 - INFO - [PASS] utils.process_manager import: 
+2026-07-31 19:19:09,369 - INFO - [PASS] utils.tray_manager import: 
+2026-07-31 19:19:09,369 - INFO - 
+--- Testing Configuration Constants ---
+2026-07-31 19:19:09,369 - INFO - [PASS] COLORS dictionary exists: 
+2026-07-31 19:19:09,369 - INFO - [PASS] COLORS has base: 
+2026-07-31 19:19:09,369 - INFO - [PASS] COLORS has mantle: 
+2026-07-31 19:19:09,370 - INFO - [PASS] COLORS has green: 
+2026-07-31 19:19:09,370 - INFO - [PASS] COLORS has red: 
+2026-07-31 19:19:09,370 - INFO - [PASS] FONTS dictionary exists: 
+2026-07-31 19:19:09,370 - INFO - [PASS] FONTS has app_title: 
+2026-07-31 19:19:09,370 - INFO - [PASS] FONTS has button: 
+2026-07-31 19:19:09,370 - INFO - [PASS] FONTS has status: 
+2026-07-31 19:19:09,370 - INFO - [PASS] FONTS has pixel_timer: 
+2026-07-31 19:19:09,370 - INFO - [PASS] FONTS has footer: 
+2026-07-31 19:19:09,370 - INFO - [PASS] WINDOW dictionary exists: 
+2026-07-31 19:19:09,370 - INFO - [PASS] WINDOW has main_width: 
+2026-07-31 19:19:09,370 - INFO - [PASS] WINDOW has main_height: 
+2026-07-31 19:19:09,370 - INFO - [PASS] WINDOW has sidebar_width: 
+2026-07-31 19:19:09,371 - INFO - [PASS] All font sizes are integers: 
+2026-07-31 19:19:09,371 - INFO - 
+--- Testing QuestManager ---
+2026-07-31 19:19:09,371 - INFO - [PASS] QuestManager initialization: 
+2026-07-31 19:19:09,371 - INFO - [PASS] Set/get selected game: 
+2026-07-31 19:19:09,371 - INFO - [PASS] Start quest: 
+2026-07-31 19:19:09,371 - INFO - [PASS] Quest is running: 
+2026-07-31 19:19:09,371 - INFO - [PASS] Stop quest: 
+2026-07-31 19:19:09,371 - INFO - [PASS] Set/get fake exe path: 
+2026-07-31 19:19:09,372 - INFO - [PASS] Set/get custom duration: 
+2026-07-31 19:19:09,372 - INFO - 
+--- Testing FavoritesManager ---
+2026-07-31 19:19:09,372 - INFO - [PASS] FavoritesManager initialization: 
+2026-07-31 19:19:09,373 - INFO - [PASS] Add favorite: 
+2026-07-31 19:19:09,373 - INFO - [PASS] Get favorites: 
+2026-07-31 19:19:09,373 - INFO - [PASS] Remove favorite: 
+2026-07-31 19:19:09,374 - INFO - [PASS] Add/get recent: 
+2026-07-31 19:19:09,374 - INFO - 
+--- Testing SettingsManager ---
+2026-07-31 19:19:09,374 - INFO - [PASS] SettingsManager initialization: 
+2026-07-31 19:19:09,374 - INFO - [PASS] Set/get setting: 
+2026-07-31 19:19:09,375 - INFO - [PASS] Get with default: 
+2026-07-31 19:19:09,375 - INFO - [PASS] Multi-quest limit: 
+2026-07-31 19:19:09,375 - INFO - 
+--- Testing ThemeManager ---
+2026-07-31 19:19:09,375 - INFO - [PASS] ThemeManager initialization: 
+2026-07-31 19:19:09,375 - INFO - [PASS] Get current theme: 
+2026-07-31 19:19:09,375 - INFO - [PASS] Set theme to light: 
+2026-07-31 19:19:09,375 - INFO - [PASS] Set theme to dark: 
+2026-07-31 19:19:09,376 - INFO - [PASS] Get colors: 
+2026-07-31 19:19:09,376 - INFO - 
+--- Testing DummyRegistry ---
+2026-07-31 19:19:09,376 - INFO - [PASS] DummyRegistry initialization: 
+2026-07-31 19:19:09,376 - INFO - [PASS] Register dummy: 
+2026-07-31 19:19:09,376 - INFO - [PASS] Get registered dummies: 
+2026-07-31 19:19:09,377 - INFO - [PASS] Unregister dummy: 
+2026-07-31 19:19:09,377 - INFO - 
+--- Testing DiscordChecker ---
+2026-07-31 19:19:09,377 - INFO - [PASS] DiscordChecker initialization: 
+2026-07-31 19:19:09,602 - INFO - [PASS] Check Discord running: 
+2026-07-31 19:19:09,602 - INFO - 
+--- Testing Search ---
+2026-07-31 19:19:09,602 - INFO - [PASS] Search initialization: 
+2026-07-31 19:19:09,602 - INFO - [PASS] Search method: 
+2026-07-31 19:19:09,603 - INFO - [PASS] Format result: 
+2026-07-31 19:19:09,603 - INFO - 
+--- Testing Timer ---
+2026-07-31 19:19:09,603 - INFO - [PASS] Timer initialization: 
+2026-07-31 19:19:09,603 - INFO - [PASS] Set duration: 
+2026-07-31 19:19:09,603 - INFO - [PASS] Get display time: 
+2026-07-31 19:19:09,603 - INFO - [PASS] Get elapsed seconds (before start): 
+2026-07-31 19:19:09,603 - INFO - [PASS] Stop timer: 
+2026-07-31 19:19:09,603 - INFO - [PASS] Reset timer: 
+2026-07-31 19:19:09,603 - INFO - 
+--- Testing Database ---
+2026-07-31 19:19:09,603 - INFO - [PASS] Database initialization: 
+2026-07-31 19:19:09,603 - INFO - [PASS] Get games: 
+2026-07-31 19:19:09,603 - INFO - 
+--- Testing ProcessManager ---
+2026-07-31 19:19:09,603 - INFO - [PASS] ProcessManager initialization: 
+2026-07-31 19:19:09,603 - INFO - [PASS] Check process running (fake ID): 
+2026-07-31 19:19:09,603 - INFO - 
+--- Testing IconHandler ---
+2026-07-31 19:19:09,603 - INFO - [PASS] IconHandler initialization: 
+2026-07-31 19:19:09,604 - DEBUG - Importing PngImagePlugin
+2026-07-31 19:19:09,613 - DEBUG - STREAM b'IHDR' 16 13
+2026-07-31 19:19:09,613 - DEBUG - STREAM b'pHYs' 41 9
+2026-07-31 19:19:09,613 - DEBUG - STREAM b'tEXt' 62 25
+2026-07-31 19:19:09,613 - DEBUG - STREAM b'IDAT' 99 2487
+2026-07-31 19:19:09,616 - INFO - [PASS] Load UI icon: 
+2026-07-31 19:19:09,616 - INFO - 
+--- Testing UI Components ---
+2026-07-31 19:19:09,671 - INFO - [PASS] PixelProgressBar creation: 
+2026-07-31 19:19:09,671 - INFO - [PASS] PixelProgressBar set_progress: 
+2026-07-31 19:19:09,671 - INFO - [PASS] PixelProgressBar update_colors: 
+2026-07-31 19:19:09,672 - INFO - [PASS] PixelButton creation: 
+2026-07-31 19:19:09,672 - INFO - [PASS] PixelButton update_colors: 
+2026-07-31 19:19:09,672 - INFO - [PASS] PixelButton update_text: 
+2026-07-31 19:19:09,675 - INFO - 
+--- Testing Sidebar Container Sizes ---
+2026-07-31 19:19:09,747 - DEBUG - STREAM b'IHDR' 16 13
+2026-07-31 19:19:09,748 - DEBUG - STREAM b'pHYs' 41 9
+2026-07-31 19:19:09,748 - DEBUG - STREAM b'tEXt' 62 25
+2026-07-31 19:19:09,748 - DEBUG - STREAM b'IDAT' 99 2487
+2026-07-31 19:19:09,929 - DEBUG - STREAM b'IHDR' 16 13
+2026-07-31 19:19:09,929 - DEBUG - STREAM b'pHYs' 41 9
+2026-07-31 19:19:09,929 - DEBUG - STREAM b'tEXt' 62 25
+2026-07-31 19:19:09,929 - DEBUG - STREAM b'IDAT' 99 2453
+2026-07-31 19:19:09,933 - DEBUG - STREAM b'IHDR' 16 13
+2026-07-31 19:19:09,933 - DEBUG - STREAM b'sRGB' 41 1
+2026-07-31 19:19:09,933 - DEBUG - STREAM b'IDAT' 54 2606
+2026-07-31 19:19:09,937 - DEBUG - STREAM b'IHDR' 16 13
+2026-07-31 19:19:09,937 - DEBUG - STREAM b'pHYs' 41 9
+2026-07-31 19:19:09,937 - DEBUG - STREAM b'tEXt' 62 25
+2026-07-31 19:19:09,937 - DEBUG - STREAM b'IDAT' 99 2297
+2026-07-31 19:19:09,941 - DEBUG - STREAM b'IHDR' 16 13
+2026-07-31 19:19:09,941 - DEBUG - STREAM b'pHYs' 41 9
+2026-07-31 19:19:09,941 - DEBUG - STREAM b'tEXt' 62 25
+2026-07-31 19:19:09,941 - DEBUG - STREAM b'IDAT' 99 2560
+2026-07-31 19:19:09,946 - DEBUG - STREAM b'IHDR' 16 13
+2026-07-31 19:19:09,946 - DEBUG - STREAM b'sBIT' 41 4
+2026-07-31 19:19:09,946 - DEBUG - b'sBIT' 41 4 (unknown)
+2026-07-31 19:19:09,947 - DEBUG - STREAM b'pHYs' 57 9
+2026-07-31 19:19:09,947 - DEBUG - STREAM b'tEXt' 78 25
+2026-07-31 19:19:09,947 - DEBUG - STREAM b'IDAT' 115 8192
+2026-07-31 19:19:10,467 - INFO - === Sidebar Container Sizes ===
+2026-07-31 19:19:10,467 - INFO - Header Card: 1x1
+2026-07-31 19:19:10,467 - INFO - Status Card: 1x1
+2026-07-31 19:19:10,468 - INFO - Favorites Card: 1x1
+2026-07-31 19:19:10,468 - INFO - Recent Card: 1x1
+2026-07-31 19:19:10,468 - INFO - Header Content Frame: 1x1
+2026-07-31 19:19:10,468 - INFO - Status Content Frame: 1x1
+2026-07-31 19:19:10,468 - INFO - Favorites Content Frame: 1x1
+2026-07-31 19:19:10,468 - INFO - Recent Content Frame: 1x1
+2026-07-31 19:19:10,468 - INFO - ================================
+2026-07-31 19:19:10,468 - INFO - [PASS] Sidebar container sizes test: 
+2026-07-31 19:19:10,488 - INFO - 
+============================================================
+2026-07-31 19:19:10,488 - INFO - Debug Test Summary
+2026-07-31 19:19:10,488 - INFO - ============================================================
+2026-07-31 19:19:10,488 - INFO - Total Tests Passed: 87
+2026-07-31 19:19:10,489 - INFO - Total Tests Failed: 0
+2026-07-31 19:19:10,489 - INFO - Total Tests: 87
+2026-07-31 19:19:10,489 - INFO - ============================================================
+2026-07-31 19:19:10,490 - INFO - Summary saved to: C:\Users\user\OneDrive\Desktop\DiscordQuestManager\version 1.1.0\logs\debug_summary.txt
+2026-07-31 19:19:10,490 - INFO - 
+Debug build completed successfully!
+2026-07-31 19:19:10,490 - INFO - Press Enter to exit...

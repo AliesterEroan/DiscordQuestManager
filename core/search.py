@@ -9,12 +9,11 @@ class Search:
     def __init__(self, games_db: List[Dict[str, Any]]):
         self.games_db = games_db
 
-    def search(self, query: str, max_results: int = 100) -> List[Tuple[str, str]]:
+    def search(self, query: str) -> List[Tuple[str, str]]:
         """Search games by name or executable name.
         
         Args:
             query: Search query string
-            max_results: Maximum number of results to return (default: 100)
             
         Returns:
             List of tuples (game_name, executable_name)
@@ -26,9 +25,6 @@ class Search:
         matches = []
 
         for app in self.games_db:
-            if len(matches) >= max_results:
-                break
-                
             app_name = app.get("name", "Unknown Game")
             for exe in app.get("executables", []):
                 if exe.get("os") == "win32":

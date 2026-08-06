@@ -1,0 +1,126 @@
+2026-07-31 11:59:27,573 - INFO - ============================================================
+2026-07-31 11:59:27,573 - INFO - Discord Quest Manager Debug Build
+2026-07-31 11:59:27,573 - INFO - Log file: C:\Users\user\OneDrive\Desktop\DiscordQuestManager\version 1.1.0\logs\debug_20260731_115927.log
+2026-07-31 11:59:27,573 - INFO - ============================================================
+2026-07-31 11:59:27,573 - INFO - 
+============================================================
+2026-07-31 11:59:27,574 - INFO - Starting Debug Tests
+2026-07-31 11:59:27,574 - INFO - ============================================================
+2026-07-31 11:59:27,574 - INFO - 
+--- Testing Imports ---
+2026-07-31 11:59:27,690 - INFO - [PASS] tkinter import: 
+2026-07-31 11:59:27,694 - INFO - [PASS] config.constants import: 
+2026-07-31 11:59:27,702 - INFO - [PASS] core.quest_manager import: 
+2026-07-31 11:59:27,719 - INFO - [PASS] core.favorites_manager import: 
+2026-07-31 11:59:27,724 - INFO - [PASS] core.settings_manager import: 
+2026-07-31 11:59:27,801 - INFO - [PASS] core.theme_manager import: 
+2026-07-31 11:59:27,805 - INFO - [PASS] core.dummy_registry import: 
+2026-07-31 11:59:27,812 - INFO - [PASS] core.discord_checker import: 
+2026-07-31 11:59:27,814 - INFO - [PASS] core.search import: 
+2026-07-31 11:59:27,816 - INFO - [PASS] core.timer import: 
+2026-07-31 11:59:27,818 - INFO - [PASS] core.cleanup import: 
+2026-07-31 11:59:27,859 - INFO - [PASS] core.database import: 
+2026-07-31 11:59:27,930 - INFO - [PASS] ui.main_window import: 
+2026-07-31 11:59:27,933 - INFO - [PASS] ui.progress_bar import: 
+2026-07-31 11:59:27,941 - INFO - [PASS] ui.sidebar import: 
+2026-07-31 11:59:27,941 - INFO - [PASS] ui.settings_dialog import: 
+2026-07-31 11:59:27,942 - INFO - [PASS] ui.about_dialog import: 
+2026-07-31 11:59:27,974 - INFO - [PASS] ui.dummy_window import: 
+2026-07-31 11:59:27,974 - INFO - [PASS] utils.icon_handler import: 
+2026-07-31 11:59:27,974 - INFO - [PASS] utils.process_manager import: 
+2026-07-31 11:59:27,974 - INFO - [PASS] utils.tray_manager import: 
+2026-07-31 11:59:27,974 - INFO - 
+--- Testing Configuration Constants ---
+2026-07-31 11:59:27,975 - INFO - [PASS] COLORS dictionary exists: 
+2026-07-31 11:59:27,975 - INFO - [PASS] COLORS_DARK exists: 
+2026-07-31 11:59:27,975 - INFO - [PASS] COLORS_LIGHT exists: 
+2026-07-31 11:59:27,975 - INFO - [PASS] FONTS dictionary exists: 
+2026-07-31 11:59:27,975 - INFO - [PASS] FONTS has app_title: 
+2026-07-31 11:59:27,975 - INFO - [PASS] FONTS has button: 
+2026-07-31 11:59:27,975 - INFO - [PASS] FONTS has badge: 
+2026-07-31 11:59:27,975 - INFO - [PASS] WINDOW dictionary exists: 
+2026-07-31 11:59:27,975 - INFO - [PASS] WINDOW has main_width: 
+2026-07-31 11:59:27,975 - INFO - [PASS] WINDOW has main_height: 
+2026-07-31 11:59:27,975 - INFO - [PASS] WINDOW has sidebar_width: 
+2026-07-31 11:59:27,975 - INFO - [PASS] All font sizes are integers: 
+2026-07-31 11:59:27,975 - INFO - 
+--- Testing QuestManager ---
+2026-07-31 11:59:27,976 - INFO - [PASS] QuestManager initialization: 
+2026-07-31 11:59:27,976 - INFO - [PASS] Set/get selected game: 
+2026-07-31 11:59:27,976 - INFO - [PASS] Start quest: 
+2026-07-31 11:59:27,976 - INFO - [PASS] Quest is running: 
+2026-07-31 11:59:27,976 - INFO - [PASS] Stop quest: 
+2026-07-31 11:59:27,976 - INFO - [PASS] Set/get fake exe path: 
+2026-07-31 11:59:27,976 - INFO - [PASS] Set/get custom duration: 
+2026-07-31 11:59:27,976 - INFO - 
+--- Testing FavoritesManager ---
+2026-07-31 11:59:27,977 - INFO - [PASS] FavoritesManager initialization: 
+2026-07-31 11:59:27,978 - INFO - [PASS] Add favorite: 
+2026-07-31 11:59:27,978 - INFO - [PASS] Get favorites: 
+2026-07-31 11:59:27,978 - INFO - [PASS] Remove favorite: 
+2026-07-31 11:59:27,979 - INFO - [PASS] Add/get recent: 
+2026-07-31 11:59:27,979 - INFO - 
+--- Testing SettingsManager ---
+2026-07-31 11:59:27,979 - INFO - [PASS] SettingsManager initialization: 
+2026-07-31 11:59:27,980 - INFO - [PASS] Set/get setting: 
+2026-07-31 11:59:27,981 - INFO - [PASS] Get with default: 
+2026-07-31 11:59:27,982 - INFO - [PASS] Multi-quest limit: 
+2026-07-31 11:59:27,982 - INFO - 
+--- Testing ThemeManager ---
+2026-07-31 11:59:27,983 - INFO - [PASS] ThemeManager initialization: 
+2026-07-31 11:59:27,983 - INFO - [FAIL] ThemeManager test: 'ThemeManager' object has no attribute 'get_current_theme'
+2026-07-31 11:59:27,983 - INFO - 
+--- Testing DummyRegistry ---
+2026-07-31 11:59:27,983 - INFO - [PASS] DummyRegistry initialization: 
+2026-07-31 11:59:27,985 - INFO - [PASS] Register dummy: 
+2026-07-31 11:59:27,985 - INFO - [FAIL] DummyRegistry test: 'DummyRegistry' object has no attribute 'get_all_dummies'
+2026-07-31 11:59:27,986 - INFO - 
+--- Testing DiscordChecker ---
+2026-07-31 11:59:27,986 - INFO - [PASS] DiscordChecker initialization: 
+2026-07-31 11:59:28,173 - INFO - [PASS] Check Discord running: 
+2026-07-31 11:59:28,173 - INFO - 
+--- Testing Search ---
+2026-07-31 11:59:28,174 - INFO - [FAIL] Search test: Search.__init__() missing 1 required positional argument: 'games_db'
+2026-07-31 11:59:28,174 - INFO - 
+--- Testing Timer ---
+2026-07-31 11:59:28,174 - INFO - [FAIL] Timer test: Timer.__init__() takes 1 positional argument but 2 were given
+2026-07-31 11:59:28,174 - INFO - 
+--- Testing Database ---
+2026-07-31 11:59:28,174 - INFO - [PASS] Database initialization: 
+2026-07-31 11:59:28,174 - INFO - [PASS] Get games: 
+2026-07-31 11:59:28,174 - INFO - 
+--- Testing ProcessManager ---
+2026-07-31 11:59:28,174 - INFO - [PASS] ProcessManager initialization: 
+2026-07-31 11:59:28,174 - INFO - [PASS] Check process running (fake ID): 
+2026-07-31 11:59:28,174 - INFO - 
+--- Testing IconHandler ---
+2026-07-31 11:59:28,174 - INFO - [PASS] IconHandler initialization: 
+2026-07-31 11:59:28,175 - DEBUG - Importing PngImagePlugin
+2026-07-31 11:59:28,182 - DEBUG - STREAM b'IHDR' 16 13
+2026-07-31 11:59:28,183 - DEBUG - STREAM b'pHYs' 41 9
+2026-07-31 11:59:28,183 - DEBUG - STREAM b'tEXt' 62 25
+2026-07-31 11:59:28,183 - DEBUG - STREAM b'IDAT' 99 2487
+2026-07-31 11:59:28,186 - INFO - [PASS] Load UI icon: 
+2026-07-31 11:59:28,186 - INFO - 
+--- Testing UI Components ---
+2026-07-31 11:59:28,634 - INFO - [PASS] ProgressBar creation: 
+2026-07-31 11:59:28,634 - INFO - [PASS] ProgressBar update: 
+2026-07-31 11:59:28,634 - INFO - [PASS] ProgressBar reset: 
+2026-07-31 11:59:28,637 - INFO - 
+============================================================
+2026-07-31 11:59:28,637 - INFO - Debug Test Summary
+2026-07-31 11:59:28,638 - INFO - ============================================================
+2026-07-31 11:59:28,638 - INFO - Total Tests Passed: 63
+2026-07-31 11:59:28,638 - INFO - Total Tests Failed: 4
+2026-07-31 11:59:28,638 - INFO - Total Tests: 67
+2026-07-31 11:59:28,638 - INFO - 
+Failed Tests:
+2026-07-31 11:59:28,638 - INFO -   - ThemeManager test: 'ThemeManager' object has no attribute 'get_current_theme'
+2026-07-31 11:59:28,638 - INFO -   - DummyRegistry test: 'DummyRegistry' object has no attribute 'get_all_dummies'
+2026-07-31 11:59:28,638 - INFO -   - Search test: Search.__init__() missing 1 required positional argument: 'games_db'
+2026-07-31 11:59:28,638 - INFO -   - Timer test: Timer.__init__() takes 1 positional argument but 2 were given
+2026-07-31 11:59:28,638 - INFO - ============================================================
+2026-07-31 11:59:28,639 - INFO - Summary saved to: C:\Users\user\OneDrive\Desktop\DiscordQuestManager\version 1.1.0\logs\debug_summary.txt
+2026-07-31 11:59:28,639 - INFO - 
+Debug build completed successfully!
+2026-07-31 11:59:28,639 - INFO - Press Enter to exit...

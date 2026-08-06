@@ -8,15 +8,12 @@ from typing import Optional, Tuple, Callable
 class QuestManager:
     """Manages quest state and lifecycle."""
 
-    def __init__(self, quest_id: str = "default", custom_data_dir: Optional[str] = None):
-        self.quest_id = quest_id
+    def __init__(self):
         self.is_running = False
         self.selected_game: Optional[Tuple[str, str]] = None
         self.fake_exe_path: Optional[str] = None
         self.on_start_callback: Optional[Callable] = None
         self.on_stop_callback: Optional[Callable] = None
-        self.custom_duration: Optional[int] = None
-        self.custom_data_dir = custom_data_dir
 
     def set_selected_game(self, game_name: str, exe_name: str) -> None:
         """Set the currently selected game.
@@ -34,30 +31,6 @@ class QuestManager:
             Tuple of (game_name, exe_name) or None
         """
         return self.selected_game
-
-    def get_quest_id(self) -> str:
-        """Get the quest ID.
-        
-        Returns:
-            Quest ID string
-        """
-        return self.quest_id
-
-    def set_custom_duration(self, duration_minutes: int) -> None:
-        """Set custom duration for this quest.
-        
-        Args:
-            duration_minutes: Duration in minutes
-        """
-        self.custom_duration = duration_minutes
-
-    def get_custom_duration(self) -> Optional[int]:
-        """Get custom duration for this quest.
-        
-        Returns:
-            Duration in minutes or None
-        """
-        return self.custom_duration
 
     def start_quest(self) -> bool:
         """Start the quest.
@@ -117,8 +90,6 @@ class QuestManager:
         Returns:
             Base directory path
         """
-        if self.custom_data_dir:
-            return self.custom_data_dir
         if getattr(sys, "frozen", False):
             return os.path.dirname(sys.executable)
         return os.path.dirname(os.path.abspath(__file__))

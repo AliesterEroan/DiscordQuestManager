@@ -1,0 +1,47 @@
+2026-08-06 22:38:29,852 - INFO - Settings dialog logging initialized
+2026-08-06 22:38:29,864 - INFO - [DummyWindow] Initializing dummy window
+2026-08-06 22:38:29,864 - INFO - [DummyWindow] Game: Somewhere in the Shadow, Exe: somewhere in the shadow.exe
+2026-08-06 22:38:29,864 - INFO - [DummyWindow] Duration: 1 minutes (60 seconds)
+2026-08-06 22:38:29,864 - INFO - [DummyWindow] Cat selection: Cat-1
+2026-08-06 22:38:30,105 - INFO - [DummyWindow] _get_cat_animation called: state=running, cat_selection=Cat-1
+2026-08-06 22:38:30,105 - INFO - [DummyWindow] Trying animations in order: ['walk', 'run', 'sleep', 'stretch', 'itch']
+2026-08-06 22:38:30,105 - INFO - [DummyWindow] Base directory: C:\Users\user\AppData\Local\Temp\_MEI164202
+2026-08-06 22:38:30,105 - INFO - [DummyWindow] Cat directory: C:\Users\user\AppData\Local\Temp\_MEI164202\assets\animations\cat\Cat-1
+2026-08-06 22:38:30,105 - INFO - [DummyWindow] Checking animation file: C:\Users\user\AppData\Local\Temp\_MEI164202\assets\animations\cat\Cat-1\Cat-1-Walk_b.gif
+2026-08-06 22:38:30,105 - INFO - [DummyWindow] Found animation: C:\Users\user\AppData\Local\Temp\_MEI164202\assets\animations\cat\Cat-1\Cat-1-Walk_b.gif
+2026-08-06 22:38:30,105 - INFO - [DummyWindow] Loading animation from: C:\Users\user\AppData\Local\Temp\_MEI164202\assets\animations\cat\Cat-1\Cat-1-Walk_b.gif
+2026-08-06 22:38:30,114 - INFO - [DummyWindow] Loading as GIF animation
+2026-08-06 22:38:30,115 - DEBUG - Importing GifImagePlugin
+2026-08-06 22:38:30,141 - DEBUG - Importing PngImagePlugin
+2026-08-06 22:38:30,145 - DEBUG - STREAM b'IHDR' 16 13
+2026-08-06 22:38:30,145 - DEBUG - STREAM b'pHYs' 41 9
+2026-08-06 22:38:30,145 - DEBUG - STREAM b'tEXt' 62 25
+2026-08-06 22:38:30,145 - DEBUG - STREAM b'IDAT' 99 8192
+2026-08-06 22:38:30,150 - INFO - [DummyWindow] Showing window...
+2026-08-06 22:38:30,352 - INFO - [DummyWindow] Starting timer thread... duration=60s
+2026-08-06 22:38:30,352 - INFO - [DummyWindow] Timer started: duration=60s
+2026-08-06 22:38:30,352 - INFO - [DummyWindow] Timer thread started successfully
+2026-08-06 22:38:31,353 - INFO - [DummyWindow] Timer tick: 1/60s
+2026-08-06 22:38:31,353 - INFO - [DummyWindow] _update_progress called: elapsed=1, duration=60
+2026-08-06 22:38:31,353 - INFO - [DummyWindow] Calculated percentage: 1.6666666666666667%
+2026-08-06 22:38:31,353 - INFO - [DummyWindow] Canvas width: 340
+2026-08-06 22:38:31,353 - INFO - [DummyWindow] Progress width: 5.666666666666667
+2026-08-06 22:38:32,353 - INFO - [DummyWindow] Timer tick: 2/60s
+2026-08-06 22:38:32,354 - INFO - [DummyWindow] _update_progress called: elapsed=2, duration=60
+2026-08-06 22:38:32,354 - INFO - [DummyWindow] Calculated percentage: 3.3333333333333335%
+2026-08-06 22:38:32,354 - INFO - [DummyWindow] Canvas width: 340
+2026-08-06 22:38:32,354 - INFO - [DummyWindow] Progress width: 11.333333333333334
+2026-08-06 22:38:33,354 - INFO - [DummyWindow] Timer tick: 3/60s
+2026-08-06 22:38:33,354 - INFO - [DummyWindow] _update_progress called: elapsed=3, duration=60
+2026-08-06 22:38:33,354 - INFO - [DummyWindow] Calculated percentage: 5.0%
+2026-08-06 22:38:33,354 - INFO - [DummyWindow] Canvas width: 340
+2026-08-06 22:38:33,354 - INFO - [DummyWindow] Progress width: 17.0
+2026-08-06 22:38:34,562 - DEBUG - STREAM b'IHDR' 16 13
+2026-08-06 22:38:34,562 - DEBUG - STREAM b'pHYs' 41 9
+2026-08-06 22:38:34,562 - DEBUG - STREAM b'tEXt' 62 25
+2026-08-06 22:38:34,562 - DEBUG - STREAM b'IDAT' 99 8192
+2026-08-06 22:38:34,638 - DEBUG - STREAM b'IHDR' 16 13
+2026-08-06 22:38:34,638 - DEBUG - STREAM b'pHYs' 41 9
+2026-08-06 22:38:34,638 - DEBUG - STREAM b'tEXt' 62 25
+2026-08-06 22:38:34,638 - DEBUG - STREAM b'IDAT' 99 8192
+2026-08-06 22:38:38,823 - DEBUG - GET setting 'auto_clean_on_exit': False (default: True)

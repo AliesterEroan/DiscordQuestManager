@@ -1,0 +1,98 @@
+Discord Quest Manager - Modular Structure v1.0.0
+================================================
+
+main_app/
+├── main.py                 # Entry point, orchestrates everything
+├── config/
+│   └── constants.py        # Colors, dimensions, URLs, timer settings
+├── core/
+│   ├── database.py         # Discord API fetching, caching
+│   ├── search.py           # Game search logic
+│   ├── quest_manager.py    # Quest lifecycle (start/stop/process)
+│   ├── timer.py            # Countdown timer logic
+│   └── cleanup.py          # Dummy file cleanup
+├── ui/
+│   ├── main_window.py      # Main application window
+│   ├── dummy_window.py     # Fake game process window
+│   └── about_dialog.py     # About/update dialog
+└── utils/
+    ├── icon_handler.py     # Icon loading logic
+    └── process_manager.py  # Process spawning/termination
+
+Module Responsibilities:
+--------------------------
+
+main.py
+- Application entry point
+- Initialize all modules
+- Wire UI callbacks to core logic
+- Handle command-line arguments (--dummy-mode)
+
+config/constants.py
+- Catppuccin color scheme
+- Window dimensions
+- Discord API URL
+- Timer duration (15 minutes)
+- UI fonts and styling
+
+core/database.py
+- Fetch Discord detectable games API
+- Async loading with threading
+- Cache management
+- Error handling for network issues
+
+core/search.py
+- Search game database by name/executable
+- Filter Windows executables only
+- Handle duplicate entries
+- Return formatted results
+
+core/quest_manager.py
+- Manage quest state (running/stopped)
+- Handle fake executable creation
+- Coordinate with process_manager
+- Track selected game
+
+core/timer.py
+- Countdown timer logic
+- Format display (MM:SS)
+- Handle completion events
+- Tick callback management
+
+core/cleanup.py
+- Scan directory for dummy executables
+- Exclude main application from deletion
+- Safe file removal with error handling
+- Return cleanup statistics
+
+ui/main_window.py
+- Main DiscordQuestApp class
+- Search interface
+- Results listbox
+- Control buttons (Start/Stop, Clean)
+- Timer display
+- Footer with credits/version
+
+ui/dummy_window.py
+- run_dummy_mode function
+- Fake game process window
+- Topmost behavior
+- Status message display
+
+ui/about_dialog.py
+- About window implementation
+- Version display
+- Update checker button
+- GitHub links
+
+utils/icon_handler.py
+- Load application icon
+- Handle both dev and packaged environments
+- Fallback for missing icons
+- Icon assignment to windows
+
+utils/process_manager.py
+- Spawn subprocess with correct arguments
+- Handle frozen vs dev environments
+- Process termination
+- Process polling for status
