@@ -1,0 +1,707 @@
+Discord Quest Manager - Complete UI Components Reference for AI Development
+
+================================================================================
+APPLICATION OVERVIEW
+================================================================================
+Application Name: Discord Quest Manager
+Version: 1.1.0
+Author: Aliester Eroan
+UI Framework: Tkinter (Python)
+Theme System: Catppuccin (Dark/Light)
+Font System: Press Start 2P (Pixel Font)
+Layout Style: Retro Terminal / 8-bit Aesthetic
+
+================================================================================
+MAIN WINDOW STRUCTURE
+================================================================================
+Window Dimensions: 1000 x 650 pixels
+Resizable: False
+Background Color: base (#11111b dark / #eff1f5 light)
+
+Layout Structure:
+- Left Sidebar: 250px width, background=mantle
+- Right Main Panel: 750px width, background=base
+
+================================================================================
+SIDEBAR COMPONENTS
+================================================================================
+
+1. HEADER CARD
+   Location: Top of sidebar
+   Container: Frame
+   - Padding: padx=12, pady=15
+   - Background: surface color
+   - Outer padding: 10px (all sides)
+   
+   Components:
+   - App Icon
+     * Size: Default application icon size
+     * Location: Left side of header row
+     * Right padding: 10px
+     * Source: IconHandler.load_icon()
+   
+   - Title Label
+     * Text: "Discord Quest\nManager" (two lines)
+     * Font: Press Start 2P, size 7
+     * Color: pink (#f5c2e7 dark / #ea76cb light)
+     * Left padding: 6px
+     * Alignment: Left
+   
+   - Status Label
+     * Text: "● DATABASE READY" (dynamic)
+     * Font: Press Start 2P, size 6, italic
+     * Color: green (#a6e3a1 dark / #40a02b light)
+     * Alignment: anchor="w" (left)
+   
+   - Game Count Label
+     * Text: "Connecting..." / "X,XXX registered" (dynamic)
+     * Font: Segoe UI, size 8
+     * Color: subtext0 (#a6adc8 dark / #6c7086 light)
+     * Bottom padding: 15px
+     * Alignment: anchor="w" (left)
+
+2. QUEUE CARD
+   Location: Below header card
+   Container: Frame
+   - Padding: padx=15, pady=15
+   - Background: surface color
+   - Outer padding: 10px (all sides)
+   
+   Components:
+   - Queue Label
+     * Text: "SELECTED: 0 Games Queued" (dynamic)
+     * Font: Press Start 2P, size 6 (badge style)
+     * Color: text (#cdd6f4 dark / #1e1e2e light)
+     * Padding: left 6px, right 5px
+     * Alignment: anchor="w" (left)
+
+3. FAVORITES CARD
+   Location: Below queue card
+   Container: Frame
+   - Padding: padx=15, pady=15
+   - Background: surface color
+   - Outer padding: 10px (all sides)
+   
+   Components:
+   - Favorites Header
+     * Icon: bookmark.png (16x16 pixels)
+     * Text: " Favorites"
+     * Font: Press Start 2P, size 7, bold
+     * Color: text (#cdd6f4 dark / #1e1e2e light)
+     * Icon padding: right 5px
+     * Layout: Horizontal (icon left, text right)
+   
+   - Favorites Listbox
+     * Height: 5 items (visible)
+     * Font: Press Start 2P, size 6
+     * Background: surface0 (#313244 dark / #ccd0da light)
+     * Text color: text (#cdd6f4 dark / #1e1e2e light)
+     * Selection background: mauve (#cba6f7 dark / #8839ef light)
+     * Selection foreground: base (#11111b dark / #eff1f5 light)
+     * Border: flat, bd=0, highlightthickness=0
+     * Event: Double-click to add to queue
+
+4. RECENT CARD
+   Location: Below favorites card
+   Container: Frame
+   - Padding: padx=15, pady=15
+   - Background: surface color
+   - Outer padding: 10px (all sides)
+   
+   Components:
+   - Recent Header
+     * Text: "⏱ Recent"
+     * Font: Press Start 2P, size 7, bold
+     * Color: text (#cdd6f4 dark / #1e1e2e light)
+     * Bottom padding: 10px
+     * Alignment: anchor="w" (left)
+   
+   - Recent Listbox
+     * Height: 5 items (visible)
+     * Font: Press Start 2P, size 6
+     * Background: surface0 (#313244 dark / #ccd0da light)
+     * Text color: text (#cdd6f4 dark / #1e1e2e light)
+     * Selection background: mauve (#cba6f7 dark / #8839ef light)
+     * Selection foreground: base (#11111b dark / #eff1f5 light)
+     * Border: flat, bd=0, highlightthickness=0
+     * Event: Double-click to add to queue
+
+5. BUTTON CONTAINER (Sidebar Bottom)
+   Location: Bottom of sidebar
+   Container: Frame
+   - Background: mantle (#1e1e2e dark / #e6e9ef light)
+   - Padding: padx=10, pady=(5, 20) (top 5, bottom 20, sides 10)
+   - Layout: side="bottom", fill="x"
+   
+   Components:
+   - Clean Dummies Button (PixelButton)
+     * Width: 200 pixels
+     * Height: 45 pixels
+     * Icon: trash.png (18x18 pixels)
+     * Text: "Clean Dummies"
+     * Font: Courier, size 10, bold
+     * Background: surface0 (#313244 dark / #ccd0da light)
+     * Text color: red (#f38ba8 dark / #d20f39 light)
+     * Command: _clean_dummies()
+     * Bottom padding: 5px
+     * Layout: fill="x"
+   
+   - Settings Button (PixelButton)
+     * Width: 200 pixels
+     * Height: 45 pixels
+     * Icon: cog.png (18x18 pixels)
+     * Text: "Settings"
+     * Font: Courier, size 10, bold
+     * Background: surface0 (#313244 dark / #ccd0da light)
+     * Text color: text (#cdd6f4 dark / #1e1e2e light)
+     * Command: _show_settings_dialog()
+     * Layout: fill="x"
+
+================================================================================
+MAIN PANEL COMPONENTS
+================================================================================
+
+1. TOOLBAR
+   Location: Top of main panel
+   Container: Frame
+   - Background: mantle (#1e1e2e dark / #e6e9ef light)
+   - Padding: padx=15, pady=10
+   - Layout: fill="x"
+   
+   Components:
+   - Search Frame
+     * Background: surface0 (#313244 dark / #ccd0da light)
+     * Layout: side="left", fill="x", expand=True
+     * Right padding: 10px
+     * Border: flat, bd=0
+   
+   - Search Icon Label
+     * Icon: search.png (16x16 pixels)
+     * Background: surface0 (#313244 dark / #ccd0da light)
+     * Padding: padx=(10, 5), pady=8 (left 10, right 5, top/bottom 8)
+     * Layout: side="left"
+   
+   - Search Entry
+     * Font: Press Start 2P, size 7 (entry style)
+     * Background: surface0 (#313244 dark / #ccd0da light)
+     * Text color: text (#cdd6f4 dark / #1e1e2e light)
+     * Cursor color: green (#a6e3a1 dark / #40a02b light)
+     * Padding: padx=8, ipady=5
+     * Border: flat, bd=0, highlightthickness=0
+     * Layout: side="left", fill="x", expand=True
+     * Events: KeyRelease, Escape, FocusOut
+
+2. SEARCH DROPDOWN
+   Location: Below toolbar (hidden by default)
+   Container: Frame
+   - Background: surface0 (#313244 dark / #ccd0da light)
+   - Layout: place() positioning
+   - Visibility: Toggled on search input
+
+3. TARGET FRAME
+   Location: Center of main panel
+   Container: Frame
+   - Background: base (#11111b dark / #eff1f5 light)
+   - Padding: padx=15, pady=10
+   - Layout: fill="both", expand=True
+   
+   Components:
+   - Target Header
+     * Background: base (#11111b dark / #eff1f5 light)
+     * Layout: fill="x", bottom padding 10px
+   
+   - Title Label
+     * Text: "TARGET EXECUTABLES"
+     * Font: Press Start 2P, size 7, bold (card_title style)
+     * Color: pink (#f5c2e7 dark / #ea76cb light)
+     * Layout: side="left"
+   
+   - Selected Count Label
+     * Text: "0 Selected" (dynamic)
+     * Font: Press Start 2P, size 6, italic (status style)
+     * Color: subtext0 (#a6adc8 dark / #6c7086 light)
+     * Layout: side="right"
+
+4. EXECUTABLES CONTAINER
+   Location: Below target header
+   Container: Frame
+   - Background: mantle (#1e1e2e dark / #e6e9ef light)
+   - Border: bd=2, highlightbackground=mauve (#cba6f7 dark / #8839ef light), highlightthickness=2
+   - Layout: fill="both", expand=True
+   
+   Components:
+   - Empty State Frame
+     * Background: mantle (#1e1e2e dark / #e6e9ef light)
+     * Layout: fill="both", expand=True
+     * Visibility: Shown when no games in queue
+   
+   - Folder Icon Label
+     * Icon: folder.png (48x48 pixels)
+     * Background: mantle (#1e1e2e dark / #e6e9ef light)
+     * Position: relx=0.5, y=20, anchor="center" (centered horizontally)
+     * Top padding: 20px
+   
+   - Empty State Title Label
+     * Text: "NO GAMES ADDED"
+     * Font: Press Start 2P, size 7, bold (empty_state style)
+     * Color: text (#cdd6f4 dark / #1e1e2e light)
+     * Background: mantle (#1e1e2e dark / #e6e9ef light)
+     * Bottom padding: 5px
+   
+   - Empty State Subtitle Label
+     * Text: "Type in the search bar above to select and queue game executables."
+     * Font: Press Start 2P, size 6 (body_small style)
+     * Color: subtext0 (#a6adc8 dark / #6c7086 light)
+     * Background: mantle (#1e1e2e dark / #e6e9ef light)
+     * Wrap length: 380px
+   
+   - Results Frame (hidden by default)
+     * Background: mantle (#1e1e2e dark / #e6e9ef light)
+     * Layout: fill="both", expand=True
+     * Visibility: Shown when search results available
+   
+   - Results Listbox
+     * Font: Press Start 2P, size 6 (listbox style)
+     * Background: surface0 (#313244 dark / #ccd0da light)
+     * Text color: text (#cdd6f4 dark / #1e1e2e light)
+     * Selection background: mauve (#cba6f7 dark / #8839ef light)
+     * Selection foreground: base (#11111b dark / #eff1f5 light)
+     * Border: flat, bd=0, highlightthickness=0
+     * Selection mode: extended
+     * Scrollbar: Vertical
+
+5. QUEUE ITEMS (Dynamic)
+   Location: Inside executables container
+   Container: Frame (per item)
+   - Background: surface0 (#313244 dark / #ccd0da light)
+   - Padding: padx=5, pady=2
+   - Layout: fill="x"
+   
+   Components:
+   - Checkbox
+     * Background: surface0 (#313244 dark / #ccd0da light)
+     * Selection color: surface0 (#313244 dark / #ccd0da light)
+     * Left padding: 5px
+     * Command: Toggle queue item checked state
+   
+   - Game Info Label
+     * Text: "Game Name → exe_name" (dynamic)
+     * Font: Press Start 2P, size 7 (entry style)
+     * Color: text (#cdd6f4 dark / #1e1e2e light)
+     * Background: surface0 (#313244 dark / #ccd0da light)
+     * Padding: left 5px
+     * Layout: side="left", fill="x", expand=True
+     * Alignment: anchor="w" (left)
+   
+   - Favorite Button
+     * Icon: bookmark.png (16x16 pixels)
+     * Background: surface0 (#313244 dark / #ccd0da light)
+     * Right padding: 2px
+     * Layout: side="right"
+     * Command: Toggle favorite status
+   
+   - Remove Button
+     * Icon: close.png (16x16 pixels)
+     * Background: surface0 (#313244 dark / #ccd0da light)
+     * Right padding: 2px
+     * Layout: side="right"
+     * Command: Remove from queue
+
+6. FOOTER
+   Location: Bottom of main panel
+   Container: Frame
+   - Background: mantle (#1e1e2e dark / #e6e9ef light)
+   - Padding: padx=15, pady=15
+   - Layout: fill="x", side="bottom"
+   
+   Components:
+   - Timer Label
+     * Text: "15:00" (dynamic)
+     * Font: Press Start 2P, size 13 (pixel_timer style)
+     * Color: green (#a6e3a1 dark / #40a02b light)
+     * Background: mantle (#1e1e2e dark / #e6e9ef light)
+     * Bottom padding: 10px
+     * Layout: side="left"
+   
+   - Quest Count Label
+     * Text: "0 QUESTS READY" (dynamic)
+     * Font: Press Start 2P, size 6, italic (status style)
+     * Color: subtext0 (#a6adc8 dark / #6c7086 light)
+     * Background: mantle (#1e1e2e dark / #e6e9ef light)
+     * Bottom padding: 10px
+     * Layout: side="left"
+   
+   - Start/Stop Button (PixelButton)
+     * Width: 220 pixels
+     * Height: 45 pixels
+     * Icon: play.png / stop.png (18x18 pixels, dynamic)
+     * Text: "Start Quests (0)" / "Stop All Quests" (dynamic)
+     * Font: Courier, size 10, bold
+     * Background: green (#a6e3a1 dark / #40a02b light) / red (#f38ba8 dark / #d20f39 light, dynamic)
+     * Text color: base (#11111b dark / #eff1f5 light)
+     * Command: _on_start_stop_button_click()
+     * Bottom padding: 10px
+     * Layout: side="right"
+     * State: disabled when no games selected
+
+7. PROGRESS BAR
+   Location: Below footer controls
+   Container: Frame
+   - Background: mantle (#1e1e2e dark / #e6e9ef light)
+   - Top padding: 10px
+   - Layout: fill="x"
+   
+   Components:
+   - Progress Canvas
+     * Height: 16 pixels
+     * Background: mantle (#1e1e2e dark / #e6e9ef light)
+     * Border: flat, highlightthickness=0
+     * Layout: fill="x", side="left", expand=True
+   
+   - Progress Trough (Background)
+     * Height: 16 pixels
+     * Width: 1000 pixels (full width)
+     * Color: mantle (#1e1e2e dark / #e6e9ef light)
+     * Border: none
+   
+   - Progress Fill (Foreground)
+     * Height: 16 pixels
+     * Width: 0 pixels (dynamic, based on quest progress)
+     * Color: green (#a6e3a1 dark / #40a02b light)
+     * Border: none
+
+================================================================================
+SETTINGS DIALOG COMPONENTS
+================================================================================
+
+Window Properties:
+- Dimensions: 400 x 450 pixels
+- Resizable: False
+- Background: base (#11111b dark / #eff1f5 light)
+- Title: "Discord Quest Manager - Settings"
+
+1. NOTEBOOK (Tab Container)
+   Container: ttk.Notebook
+   - Padding: padx=10, pady=10
+   - Layout: fill="both", expand=True
+   
+   Tabs:
+   - Theme Tab
+   - Quest Tab
+   - System Tab
+   - Updates & About Tab
+
+2. THEME TAB
+   Container: Frame
+   - Background: base (#11111b dark / #eff1f5 light)
+   
+   Components:
+   - Theme Label
+     * Text: "Theme:"
+     * Font: Press Start 2P, size 7, bold (label style)
+     * Color: text (#cdd6f4 dark / #1e1e2e light)
+     * Background: base (#11111b dark / #eff1f5 light)
+     * Padding: left 10px, top 10px, bottom 5px
+     * Alignment: anchor="w" (left)
+   
+   - Theme Frame
+     * Background: base (#11111b dark / #eff1f5 light)
+     * Padding: left 10px, top 5px, bottom 5px
+     * Layout: fill="x"
+   
+   - Dark Theme Radio Button
+     * Icon: full-moon.png (16x16 pixels)
+     * Padding: right 5px
+     * Text: "Catppuccin Mocha (Dark)"
+     * Font: Press Start 2P, size 6 (about_text style)
+     * Color: text (#cdd6f4 dark / #1e1e2e light)
+     * Background: base (#11111b dark / #eff1f5 light)
+     * Selection color: surface0 (#313244 dark / #ccd0da light)
+     * Active background: base (#11111b dark / #eff1f5 light)
+     * Value: "dark"
+     * Layout: anchor="w"
+   
+   - Light Theme Radio Button
+     * Icon: sun.png (16x16 pixels)
+     * Padding: right 5px
+     * Text: "Catppuccin Latte (Light)"
+     * Font: Press Start 2P, size 6 (about_text style)
+     * Color: text (#cdd6f4 dark / #1e1e2e light)
+     * Background: base (#11111b dark / #eff1f5 light)
+     * Selection color: surface0 (#313244 dark / #ccd0da light)
+     * Active background: base (#11111b dark / #eff1f5 light)
+     * Value: "light"
+     * Layout: anchor="w"
+
+3. QUEST TAB
+   Container: Frame
+   - Background: base (#11111b dark / #eff1f5 light)
+   
+   Components:
+   - Duration Label
+     * Text: "Quest Duration (minutes):"
+     * Font: Press Start 2P, size 7, bold (label style)
+     * Color: text (#cdd6f4 dark / #1e1e2e light)
+     * Background: base (#11111b dark / #eff1f5 light)
+     * Padding: left 10px, top 10px, bottom 5px
+     * Alignment: anchor="w" (left)
+   
+   - Preset Frame
+     * Background: base (#11111b dark / #eff1f5 light)
+     * Padding: left 10px, top 5px, bottom 5px
+     * Layout: fill="x"
+   
+   - Preset Buttons (4 buttons)
+     * Text: "5", "10", "15", "30"
+     * Font: Press Start 2P, size 6, bold (button_small style)
+     * Background: surface1 (#45475a dark / #bcc0cc light)
+     * Text color: text (#cdd6f4 dark / #1e1e2e light)
+     * Width: 5 characters
+     * Padding: left 2px, right 2px
+     * Layout: side="left"
+     * Command: Set duration to button value
+   
+   - Duration Entry
+     * Font: Press Start 2P, size 7 (entry style)
+     * Background: surface0 (#313244 dark / #ccd0da light)
+     * Text color: text (#cdd6f4 dark / #1e1e2e light)
+     * Cursor color: white
+     * Width: 8 characters
+     * Left padding: 5px
+     * Layout: side="left"
+     * Border: flat, bd=0
+   
+   - Remember Duration Checkbox
+     * Text: "Remember last used duration"
+     * Font: Press Start 2P, size 6 (about_text style)
+     * Color: text (#cdd6f4 dark / #1e1e2e light)
+     * Background: base (#11111b dark / #eff1f5 light)
+     * Selection color: surface0 (#313244 dark / #ccd0da light)
+     * Active background: base (#11111b dark / #eff1f5 light)
+     * Padding: left 10px, top 10px, bottom 10px
+     * Alignment: anchor="w" (left)
+
+4. SYSTEM TAB
+   Container: Frame
+   - Background: base (#11111b dark / #eff1f5 light)
+   - Components vary based on system settings
+
+5. UPDATES & ABOUT TAB
+   Container: Frame
+   - Background: base (#11111b dark / #eff1f5 light)
+   - Components vary based on update status
+
+6. SAVE BUTTON
+   Location: Bottom of dialog
+   Container: Button
+   - Text: "Save Settings"
+   - Font: Press Start 2P, size 7 (button style)
+   - Background: green (#a6e3a1 dark / #40a02b light)
+   - Text color: mantle (#1e1e2e dark / #e6e9ef light)
+   - Padding: pady=5, padx=20
+   - Top padding: 10px
+   - Layout: pack()
+   - Command: _save_settings()
+
+================================================================================
+PIXELBUTTON CUSTOM COMPONENT
+================================================================================
+Component Type: Custom Canvas Widget
+File: ui/pixel_button.py
+
+Properties:
+- Width: Configurable (default 160px, used: 200px sidebar, 220px footer)
+- Height: Configurable (default 50px, used: 45px)
+- Background Color: Configurable (surface0, green, red)
+- Text Color: Configurable (text, red, base)
+- Icon: Optional PhotoImage (18x18 pixels)
+- Font: Courier, size 10, bold
+- State: normal / disabled
+
+Visual Features:
+- Pixelated rounded corners using staircasing technique
+- Pixel scale: 3 (for corner stepping)
+- 3D shading with light/dark borders
+- Hover effect with color lightening
+- Press effect with color darkening and offset
+- Disabled state with darkened color
+
+Icon/Text Layout:
+- Icon position: pixel_scale * 4 + 4 (left offset)
+- Icon anchor: center
+- Text position: icon_x + 16 (16px right of icon)
+- Text anchor: w (left-aligned)
+- Text vertical position: height // 2 + 2 (when pressed)
+
+Color Calculations:
+- Hover color: lighten(bg_color, 15)
+- Shadow color: darken(bg_color, 20)
+- Disabled color: darken(bg_color, 40)
+
+Events:
+- Mouse Enter: Show hover color
+- Mouse Leave: Return to base color
+- Mouse Press: Show shadow color with offset
+- Mouse Release: Return to hover color and execute command
+
+================================================================================
+FONT REFERENCE TABLE
+================================================================================
+
+Font Name           Size  Style      Usage
+---------------------------------------------------------------
+Press Start 2P      7     -          App title, section titles, buttons
+Press Start 2P      6     italic     Status labels, game count
+Press Start 2P      6     -          Listbox items, body text
+Press Start 2P      6     bold       Badges, small buttons
+Press Start 2P      7     bold       Labels, card titles
+Press Start 2P      13    -          Timer display
+Press Start 2P      5     -          Footer text
+Courier             10    bold       PixelButton text
+Segoe UI            8     -          Game count label
+
+Font Key Constants (FONTS dict):
+- app_title: (Press Start 2P, 7)
+- section_title: (Press Start 2P, 7)
+- badge: (Press Start 2P, 6)
+- item_label: (Press Start 2P, 7)
+- body_small: (Press Start 2P, 6)
+- button: (Press Start 2P, 7)
+- footer: (Press Start 2P, 5)
+- timer: (Press Start 2P, 13)
+- header: (Press Start 2P, 7)
+- status: (Press Start 2P, 6, italic)
+- label: (Press Start 2P, 7, bold)
+- entry: (Press Start 2P, 7)
+- listbox: (Press Start 2P, 6)
+- button_small: (Press Start 2P, 6, bold)
+- about_title: (Press Start 2P, 7, bold)
+- about_version: (Press Start 2P, 6, italic)
+- about_text: (Press Start 2P, 6)
+- pixel_timer: (Press Start 2P, 13, bold)
+- pixel_timer_small: (Press Start 2P, 10, bold)
+- card_title: (Press Start 2P, 7, bold)
+- empty_state: (Press Start 2P, 7, bold)
+- dropdown: (Press Start 2P, 7)
+- body: (Press Start 2P, 6)
+
+================================================================================
+ICON REFERENCE TABLE
+================================================================================
+
+Icon Name           Size      Usage
+---------------------------------------------------------------
+app_icon            Default   Window icon, header app icon
+bookmark.png        16x16     Favorites header, queue favorite button
+trash.png           18x18     Clean Dummies button
+cog.png             18x18     Settings button
+search.png          16x16     Search bar
+folder.png          48x48     Empty state placeholder
+play.png            18x18     Start button (PixelButton)
+stop.png            18x18     Stop button (PixelButton)
+close.png           16x16     Queue remove button
+sun.png             16x16     Light theme radio button
+full-moon.png       16x16     Dark theme radio button
+
+Icon Loading:
+- UI icons: IconHandler.load_ui_icon(filename, size_tuple)
+- App icon: IconHandler.load_icon()
+- All icons maintain reference to prevent garbage collection
+
+================================================================================
+COLOR REFERENCE TABLE
+================================================================================
+
+Color Name    Dark Theme    Light Theme   Usage
+---------------------------------------------------------------
+base          #11111b       #eff1f5       Main window background
+mantle        #1e1e2e       #e6e9ef       Sidebar, toolbar, footer
+surface       #252538       #e6e9ef       Card containers
+surface0      #313244       #ccd0da       Inputs, listboxes, button backgrounds
+surface1      #45475a       #bcc0cc       Borders, preset buttons
+surface2      #585b70       #acb0be       Hover states
+text          #cdd6f4       #1e1e2e       Primary text
+subtext0      #a6adc8       #6c7086       Secondary text, muted labels
+subtext1      #bac2de       #5c5f77       Tertiary text
+overlay0      #6c7086       #9ca0b0       Overlay backgrounds
+overlay1      #7f849c       #8c8fa1       Overlay borders
+overlay2      #9399b2       #7c7f93       Overlay highlights
+blue          #89b4fa       #1e66f5       Blue accents
+lavender      #b4befe       #7287fd       Lavender accents
+sapphire      #74c7ec       #209fb5       Sapphire accents
+sky           #89dceb       #04a5e5       Sky accents
+teal          #94e2d5       #179299       Teal accents
+green         #a6e3a1       #40a02b       Status, success, start button
+yellow        #f9e2af       #df8e1d       Yellow accents
+peach         #fab387       #fe640b       Peach accents
+maroon        #eba0ac       #e64553       Maroon accents
+red           #f38ba8       #d20f39       Error, stop button, clean dummies
+mauve         #cba6f7       #8839ef       Selection, highlights, borders
+pink          #f5c2e7       #ea76cb       Titles, accents
+flamingo      #f2cdcd       #dd7878       Flamingo accents
+rosewater     #f5e0dc       #dc8a78       Rosewater accents
+
+Color Constants:
+- COLORS_DARK: Dictionary of dark theme colors (Catppuccin Mocha)
+- COLORS_LIGHT: Dictionary of light theme colors (Catppuccin Latte)
+- COLORS: Default to COLORS_DARK
+- Theme switching handled by ThemeManager
+
+================================================================================
+LAYOUT SPACING REFERENCE
+================================================================================
+
+Standard Padding Values:
+- Card outer padding: 10px (all sides)
+- Card inner padding: 12-15px (sides), 15px (top/bottom)
+- Button container padding: 10px (sides), 5-20px (top/bottom)
+- Toolbar padding: 15px (sides), 10px (top/bottom)
+- Target frame padding: 15px (sides), 10px (top/bottom)
+- Footer padding: 15px (sides), 15px (top/bottom)
+- Icon padding: 5-10px (horizontal), 8px (vertical for search)
+- Text padding: 5-6px (horizontal), 2-15px (vertical)
+
+Standard Dimensions:
+- Sidebar width: 250px
+- Main panel width: 750px
+- PixelButton width: 200px (sidebar), 220px (footer)
+- PixelButton height: 45px
+- Icon sizes: 16x16 (small), 18x18 (buttons), 48x48 (large)
+- Progress bar height: 16px
+- Listbox height: 5 items (visible)
+
+Standard Border Widths:
+- Executables container: 2px
+- Highlight thickness: 2px
+- Button borders: 0px (flat)
+- Input borders: 0px (flat)
+
+================================================================================
+UI BEHAVIOR REFERENCE
+================================================================================
+
+Dynamic Text Updates:
+- Status label: "● DATABASE READY" / "● DATABASE OFFLINE"
+- Game count: "Connecting..." / "X,XXX registered"
+- Queue label: "SELECTED: X Games Queued"
+- Selected count: "X Selected"
+- Quest count: "X QUESTS READY"
+- Start button: "Start Quests (X)" / "Stop All Quests"
+- Timer: "MM:SS" format
+
+State Management:
+- Button states: normal / disabled
+- Theme: dark / light (switchable)
+- Quest states: idle / running
+- Database states: loading / ready / offline
+
+Event Handling:
+- Double-click: Add to queue (favorites/recent)
+- Single-click: Select (listbox)
+- Hover: Color changes (PixelButton)
+- Press: Offset and color change (PixelButton)
+- Release: Execute command (PixelButton)
+
+================================================================================
+END OF REFERENCE
+================================================================================
