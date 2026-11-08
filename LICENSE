@@ -1,23 +1,26 @@
-Discord Quest Manager - License
+Discord Quest Manager — Proprietary License
 
-Copyright (c) 2026 Aliester Eroan
+Copyright © 2026 AliesterEroan. All rights reserved.
 
-This project is provided as-is for educational and personal use.
+Discord Quest Manager is proprietary software. The following are strictly prohibited
+without explicit written permission:
 
-You may:
-- Use this software for personal and educational purposes
-- Modify the software for your own use
-- Study the code and learn from it
+- Commercial use - Using this software for business, revenue-generating,
+  or enterprise purposes
+- Distribution - Sharing, publishing, or redistributing copies of this
+  software, except as allowed for the copyright holder below
+- Modification - Altering, reverse-engineering, or creating derivative
+  works
+- Sublicensing - Granting rights to others to use this software
 
-You may not:
-- Use this software for commercial purposes without explicit permission
-- Claim this software as your own
-- Remove or alter the copyright notice
+This software is provided for personal, non-commercial use only.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Official distribution: the copyright holder may distribute copies of this
+software through the project's official channels - the GitHub Releases page
+at https://github.com/AliesterEroan/DiscordQuestManager/releases - and those copies are offered for personal,
+non-commercial use under the terms above. This clause permits the copyright
+holder's own publication only. Third parties remain bound by the
+distribution prohibition and may not host, mirror, republish, submit to a
+store, or otherwise redistribute this software or any copy of it.
+
+For licensing inquiries, open an issue at https://github.com/AliesterEroan/DiscordQuestManager/issues
