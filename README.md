@@ -2,319 +2,233 @@
 
 ![Version](https://img.shields.io/badge/version-1.1.0-blue.svg) ![Architecture](https://img.shields.io/badge/architecture-modular-success.svg) ![Python](https://img.shields.io/badge/python-3.8+-yellow.svg) ![UI](https://img.shields.io/badge/UI-Tkinter-informational.svg)
 
-> A feature-rich desktop utility built with Python & Tkinter that emulates game executable processes to help complete Discord Quests automatically. Now with multi-quest support, dynamic theming, favorites management, and system tray integration.
+> A feature-rich Windows desktop utility built with Python & Tkinter that emulates game executable processes to help complete Discord Quests automatically. v1.1.0 adds multi-quest support, dynamic theming, favorites, and system tray integration on top of the v1.0.0 modular base.
+
+---
+
+## 📜 Table of Contents
+
+- [✨ Features](#-features)
+- [🚀 Installation](#-installation)
+- [📖 Usage](#-usage)
+- [⚙️ Settings](#-settings)
+- [🏗️ Architecture](#-architecture)
+- [🛠️ Technologies Used](#-technologies-used)
+- [⚠️ Limitations](#-limitations)
+- [📜 License](#-license)
+- [🙏 Acknowledgments](#-acknowledgments)
+- [📧 Contact](#-contact)
 
 ---
 
 ## ✨ Features
 
-* 🔍 **Game Executable Search:** Instantly queries Discord's official detectable registry for precise `.exe` process names.
-* ⏱️ **Customizable Quest Timer:** Built-in countdown timer with customizable duration (5, 10, 15, 30 minutes or custom).
-* 🎯 **Multi-Quest Support:** Queue and run multiple games simultaneously with configurable concurrency limits.
-* ⭐ **Favorites & Recent History:** Save favorite games and track recently played executables for quick access.
-* 🎨 **Dynamic Theme System:** Switch between Catppuccin Mocha (dark), Latte (light), or create custom themes with a built-in color picker.
-* 🐱 **Animated Cat Characters:** Cute animated cat characters in dummy windows with 6 different cats and multiple animations (run, walk, itch, stretch, sleep).
-* ⚙️ **Comprehensive Settings:** Configure quest duration, concurrency limits, auto-cleanup, Discord auto-open, cat selection, and more.
-* 🔔 **System Tray Integration:** Minimize to system tray with status overlay and quick access controls.
-* 🧹 **Clean Dummies Utility:** Safe, one-click cleanup tool to remove any orphaned process binaries created during emulation.
-* 🔄 **Auto-Update Checking:** Built-in GitHub release checker to stay up-to-date with the latest version.
-* ℹ️ **Interactive Help Guide:** Built-in HTML help documentation accessible from the main window.
-* 🐛 **Debug Logging:** Comprehensive debug logging system for troubleshooting and issue reporting.
+### Quest Management
+- **Game executable search** — queries Discord's official detectable registry and filters for Windows `.exe` names.
+- **Customizable quest timer** — countdown with preset or custom durations (5, 10, 15, 30 minutes or custom); the timer correctly reflects the selected duration.
+- **Multi-quest support** — queue and run multiple games at once with a configurable concurrency limit.
+- **Favorites & recent history** — save favorite games and quickly re-run recently used executables.
+
+### UI & Customization
+- **Dynamic theme system** — Catppuccin Mocha (dark), Catppuccin Latte (light), or a custom theme built with the integrated color picker; themes are JSON files under `core/themes/`.
+- **Animated cat characters** — dummy windows show one of 6 animated cats (run, walk, itch, stretch, sleep animations); selection is a setting.
+- **Custom widgets** — shaded vector buttons and animated progress bars that follow the active theme.
+- **Layout persistence** — window geometry and sidebar width are saved and restored (`config/layout_config.json`).
+
+### System Integration
+- **System tray** — minimize to tray with a status overlay and start/stop/quit quick actions.
+- **Clean Dummies utility** — safe one-click removal of orphaned dummy executables.
+- **Discord auto-open** — optionally prompts to launch Discord if it isn't running.
+- **Auto-update checking** — built-in GitHub release checker (About dialog / settings).
+- **Built-in help** — `help.html` documentation accessible from the main window.
+- **Debug logging** — comprehensive logging to `DiscordQuestManager-data/log/debug.log` for troubleshooting.
 
 ---
 
-## 📁 Project Architecture
+## 🚀 Installation
 
-```text
-DiscordQuestManager/
-├── discord.png
-├── app_icon.ico
-├── build.py                # Packaging & executable build script
-├── main.py                 # Entry point, orchestrates everything
-├── config/
-│   ├── constants.py        # Colors, dimensions, URLs, timer settings, fonts
-│   └── layout_config.json  # Saved window layout configuration
-├── core/
-│   ├── database.py         # Discord API fetching, caching
-│   ├── search.py           # Game search logic
-│   ├── quest_manager.py    # Quest lifecycle (start/stop/process)
-│   ├── timer.py            # Countdown timer logic
-│   ├── cleanup.py          # Dummy file cleanup
-│   ├── settings_manager.py # Settings persistence and management
-│   ├── theme_manager.py    # Theme loading and switching
-│   ├── favorites_manager.py # Favorites and recent history
-│   ├── dummy_registry.py   # Track active dummy processes
-│   ├── discord_checker.py  # Discord process detection
-│   └── themes/
-│       ├── mocha.json      # Catppuccin Mocha theme
-│       ├── latte.json      # Catppuccin Latte theme
-│       ├── mocha_theme.py  # Mocha theme module
-│       └── __init__.py     # Theme registry
-├── ui/
-│   ├── main_window_simple.py # Main application window (simplified)
-│   ├── dummy_window.py     # Fake game process window
-│   ├── settings_dialog.py  # Settings and theme configuration dialog
-│   ├── about_dialog.py     # About/update dialog
-│   ├── smooth_button.py    # Custom shaded vector button widget
-│   └── smooth_progress_bar.py # Custom progress bar widget
-├── utils/
-│   ├── icon_handler.py     # Icon loading logic with theme support
-│   ├── process_manager.py  # Process spawning/termination
-│   └── tray_manager.py     # System tray integration
-└── data/
-    └── settings.json      # Persistent user settings
-```
+### Prerequisites
+- Windows (relies on `.exe` processes and Discord's Windows detection)
+- Python 3.8+ with `tkinter`
+- Discord running for quest completion
+- Asset folders `assets/` (icons) and `assets/animations/cat/` (cat animations) must be present
 
----
+### Steps
+1. Get the code:
+   ```bash
+   git clone https://github.com/AliesterEroan/DiscordQuestManager.git
+   cd DiscordQuestManager/version\ 1.1.0
+   ```
+2. Install dependencies:
+   ```bash
+   pip install pillow numpy psutil pystray
+   ```
+3. Run in development mode:
+   ```bash
+   python main.py
+   ```
 
-## 🔍 Module Responsibilities Breakdown
-
-### main.py
-* Application entry point.
-* Initializes all modules and wires UI callbacks to core logic.
-* Sets up theme manager and loads saved settings.
-
-### config/constants.py
-* Defines Catppuccin color schemes (Mocha, Latte, Discord themes).
-* Stores window dimensions, Discord API URL, and timer settings.
-* Holds UI fonts and global styling values.
-
-### core/database.py
-* Fetches Discord detectable games API.
-* Handles asynchronous loading using threading.
-* Manages cache storage and network error handling.
-
-### core/search.py
-* Queries the game database by title or `.exe` name.
-* Filters for Windows executables exclusively.
-* Handles duplicate entries and formats search results.
-
-### core/quest_manager.py
-* Manages quest lifecycle states (running/stopped).
-* Handles temporary fake executable creation.
-* Tracks selected game processes and coordinates with `process_manager`.
-
-### core/timer.py
-* Implements countdown timer logic with `MM:SS` formatting.
-* Manages tick callbacks and completion events.
-* Supports custom duration settings.
-
-### core/cleanup.py
-* Scans target directory for dummy executables.
-* Excludes the main application binary from deletion.
-* Safely removes files with error handling and returns cleanup statistics.
-
-### core/settings_manager.py
-* Manages application settings persistence.
-* Handles default values and validation.
-* Saves/loads settings from JSON file.
-
-### core/theme_manager.py
-* Loads and switches between JSON-based themes.
-* Handles custom theme creation and persistence.
-* Provides theme metadata and icon management.
-
-### core/favorites_manager.py
-* Manages favorite games list.
-* Tracks recently played executables.
-* Persists favorites and recent history to disk.
-
-### core/dummy_registry.py
-* Tracks active dummy process instances.
-* Prevents duplicate process creation.
-* Provides process lookup and cleanup utilities.
-
-### core/discord_checker.py
-* Detects if Discord is currently running.
-* Provides Discord auto-open functionality.
-* Checks Discord process status.
-
-### ui/main_window_simple.py
-* Main `SimpleMainWindow` with frame-based layout.
-* Contains search bar, favorites/recent lists, queue management.
-* Integrates timer display, progress bar, and footer with version details.
-* Handles theme updates and layout persistence.
-
-### ui/dummy_window.py
-* Implements `DummyWindow` representing the emulated game process.
-* Features topmost window behavior and status updates.
-* Supports dynamic theming and progress display.
-* Includes animated cat characters with multiple animation states.
-* Configurable cat selection with 6 unique cat characters.
-
-### ui/settings_dialog.py
-* Comprehensive settings dialog with tabbed interface.
-* **Theme Tab:** Theme selection (Mocha, Latte, Custom) with color picker and custom color editor.
-* **Quest Tab:** Quest duration and concurrency limit configuration.
-* **System Tab:** Auto-cleanup, Discord auto-open, minimize to tray, and other system settings.
-* **Dummy Tab:** Cat character selection with visual preview and dummy window settings.
-* **Updates & About Tab:** Version info, GitHub update checking, and project links.
-
-### ui/about_dialog.py
-* Implements the About modal dialog.
-* Displays version details, GitHub links, and an interactive update checker button.
-
-### ui/smooth_button.py
-* Custom shaded vector button widget with hover effects.
-* Supports dynamic color theming and icon integration.
-* Provides pressed state animations.
-
-### ui/smooth_progress_bar.py
-* Custom progress bar widget with smooth animations.
-* Supports dynamic color theming.
-* Provides percentage-based progress display.
-
-### utils/icon_handler.py
-* Loads application icons with theme support (dark/light mode).
-* Handles GIF animations for dummy windows.
-* Includes fallback mechanics for missing icon assets.
-
-### utils/process_manager.py
-* Spawns subprocesses with proper execution parameters.
-* Detects frozen vs. development environments.
-* Handles safe process termination and status polling.
-
-### utils/tray_manager.py
-* System tray icon with context menu.
-* Provides minimize/restore functionality.
-* Shows timer overlay and quest status.
-* Handles start/stop/quit actions from tray.
-
----
-
-## 🎨 Theme System
-
-The application features a dynamic theme system with three built-in themes:
-
-### Catppuccin Mocha (Default)
-* Dark theme with warm, muted colors
-* Perfect for low-light environments
-* Base: `#1e1e2e`, Mantle: `#181825`
-
-### Catppuccin Latte
-* Light theme with crisp, clean colors
-* Ideal for bright environments
-* Base: `#eff1f5`, Mantle: `#e6e9ef`
-
-### Custom Theme
-* Create your own color scheme
-* Built-in color picker for each theme element
-* Persists custom colors to settings
-
-Themes are stored as JSON files in `core/themes/` and can be easily extended or modified.
-
----
-
-## 🚀 Quick Start
-
-### 🛠️ Running in Development Mode
-
+### Building a Standalone Executable
 ```bash
-cd "DiscordQuestManager"
-python main.py
-```
-
-### 📦 Building Standalone Executable
-
-### Option 1: Automated Build Script (Recommended)
-```bash
+pip install pyinstaller pillow numpy psutil pystray
 python build.py
 ```
+The compiled binary is written to `dist/`. (A manual `python -m PyInstaller DiscordQuestManager.spec` build is also supported if a spec file is present.)
 
-### Option 2: Manual PyInstaller Build
-```bash
-# Install dependencies
-pip install pyinstaller pillow numpy psutil pystray
+---
 
-# Compile single-file executable
-python -m PyInstaller DiscordQuestManager.spec
+## 📖 Usage
+
+### Run quests
+1. Open the app and wait for the game database to load (fetched from Discord's detectable registry).
+2. Search for a game, then add it to the queue — use favorites/recent lists or double-click results.
+3. Press **Start**. Dummy executables spawn up to your concurrency limit; each gets a themed dummy window with an animated cat and its own countdown.
+4. **Stop** ends running quests; the **Clean** utility removes leftover dummy files. Minimize to the system tray to keep quests running in the background.
+
+### Configure
+- Open **Settings** (tabbed dialog): Theme, Quest (duration/concurrency), System (auto-cleanup, Discord auto-open, tray), Dummy (cat choice, alarm), and Updates & About tabs.
+- Change themes live — Mocha, Latte, or a custom scheme via the color picker.
+
+### Update check
+- The About dialog and settings have an update checker that queries the project's GitHub releases.
+
+---
+
+## ⚙️ Settings
+
+Settings persist to `DiscordQuestManager-data/settings.json` (a data folder next to the exe or repo root, per `APP_DATA_FOLDER` in `config/constants.py`) and include:
+
+- **Theme** — `mocha` (default), `latte`, or `custom`.
+- **Custom duration / remember duration** — default quest length in minutes and whether to remember the last choice.
+- **Multi-quest limit** — max simultaneous quests (`0` = unlimited).
+- **Minimize to tray** — enable system tray integration.
+- **Auto clean on exit** — remove dummy files when closing.
+- **Discord auto-open** — prompt to open Discord if not detected.
+- **Auto check updates** — check GitHub releases on startup.
+- **Custom colors** — per-element color overrides for the custom theme.
+- **Cat selection** — which of the 6 cat characters appears in dummy windows.
+- **Dummy alarm settings** — alarm sound/volume for dummy windows.
+
+Window layout (geometry, sidebar width) is stored separately in `config/layout_config.json`.
+
+---
+
+## 🏗️ Architecture
+
+```text
+version 1.1.0/
+├── main.py                     # Entry point; wires UI to core; loads theme + settings
+├── build.py                    # Packaging & executable build script
+├── discord.png / app_icon.ico  # App icon assets
+├── config/
+│   ├── constants.py            # Colors, dimensions, URLs, timer settings, fonts
+│   ├── layout_config.json      # Saved window layout
+│   └── themes/                 # (theme JSON/Python modules live under core/themes/)
+├── core/
+│   ├── database.py             # Discord detectable-games API fetch + cache
+│   ├── search.py               # Game search (.exe filter, dedup)
+│   ├── quest_manager.py        # Quest lifecycle (start/stop/process)
+│   ├── timer.py                # Countdown timer logic
+│   ├── cleanup.py              # Dummy file cleanup
+│   ├── settings_manager.py     # Settings persistence (DiscordQuestManager-data/settings.json)
+│   ├── theme_manager.py        # Theme load/switch, custom themes
+│   ├── favorites_manager.py    # Favorites + recent history
+│   ├── dummy_registry.py       # Active dummy process tracking
+│   ├── discord_checker.py      # Discord process detection / auto-open
+│   └── themes/                 # mocha.json, latte.json, mocha_theme.py, ...
+├── ui/
+│   ├── main_window_simple.py   # Main window (frame layout; active)
+│   ├── main_window.py          # Alternative main window
+│   ├── main_window_backup.py   # Backup of main window
+│   ├── dummy_window.py         # Emulated game window + animated cats
+│   ├── settings_dialog.py      # Tabbed settings (Theme/Quest/System/Dummy/Updates)
+│   ├── about_dialog.py         # About + update checker
+│   ├── smooth_button.py        # Themed vector button
+│   ├── smooth_progress_bar.py  # Themed animated progress bar
+│   ├── progress_bar.py         # Alternative progress bar
+│   ├── pixel_button.py / pixel_container.py / pixel_progress_bar.py  # Experimental pixel widgets
+│   ├── sidebar.py / tabs_manager.py / layout_manager.py              # Experimental layout widgets
+│   └── __init__.py
+├── utils/
+│   ├── icon_handler.py         # Icon/GIF loading with theme + packaged fallbacks
+│   ├── process_manager.py      # Subprocess spawn/terminate (frozen vs dev aware)
+│   └── tray_manager.py         # System tray icon, overlay, quick actions
+├── DiscordQuestManager-data/   # Runtime data dir (settings.json, favorites, log/) — created at runtime
+├── docs/                       # Help/documentation sources
+└── help.html                   # Built-in help guide
 ```
 
-*Note: The compiled standalone binary will be saved in the dist/ directory.*
+### Component Overview
+- **`ui/main_window_simple.py`** — active main window: search bar, favorites/recent lists, queue, timer, progress bar, footer with version.
+- **`core/quest_manager.py` + `core/dummy_registry.py`** — quest lifecycle and duplicate-process prevention.
+- **`core/theme_manager.py` + `core/themes/`** — JSON-driven theming shared by main window, dummy windows, and settings dialog.
+- **`utils/tray_manager.py`** — tray icon with timer overlay and start/stop/quit menu.
+
+### Data Flow
+1. Startup → `main.py` → `settings_manager` loads `DiscordQuestManager-data/settings.json` → `theme_manager` applies theme → registry/database caches load.
+2. Search → `core/database.py` (Discord API, background thread) → `core/search.py` → results/favorites/recent lists.
+3. Start → `quest_manager` spawns dummy exe via `process_manager` → `dummy_window` shows themed window + cat → `timer` counts down per quest.
+4. Settings change → `settings_manager` persists JSON → theme/layout managers re-render UI live.
 
 ---
 
-## ⚙️ Configuration
+## 🛠️ Technologies Used
 
-### Settings File
-Settings are automatically saved to `data/settings.json` and include:
-* **Theme:** Current theme selection (mocha, latte, custom)
-* **Custom Duration:** Default quest duration in minutes
-* **Remember Duration:** Whether to remember last used duration
-* **Minimize to Tray:** Enable system tray integration
-* **Auto Clean on Exit:** Clean dummy files when closing
-* **Discord Auto Open:** Prompt to open Discord if not running
-* **Multi-Quest Limit:** Maximum simultaneous quests (0 = unlimited)
-* **Auto Check Updates:** Check for updates on startup
-* **Custom Colors:** Custom theme color values
-* **Cat Selection:** Selected cat character for dummy windows
-* **Dummy Alarm Settings:** Alarm sound and volume for dummy windows
+### Core
+- **Python 3.8+** — runtime.
+- **Tkinter** — UI toolkit (standard library); custom-drawn buttons/progress bars on `tk.Canvas`.
+- **Pillow** — image/GIF handling for icons and cat animations.
+- **NumPy** — array operations for image/animation processing.
 
-### Layout Persistence
-Window layout (geometry, sidebar width) is automatically saved to `config/layout_config.json` and restored on startup.
+### System & Packaging
+- **psutil** — process management helpers.
+- **pystray** — system tray integration.
+- **PyInstaller** — standalone `.exe` builds (`build.py`).
+- **Discord detectable-apps API** — public game registry for search.
+- **GitHub Releases API** — update checking.
 
 ---
 
-## ✨ Key Improvements from v1.0.0
+## ⚠️ Limitations
 
-* **Multi-Quest Support:** Queue and run multiple games simultaneously
-* **Dynamic Theming:** JSON-based theme system with custom color picker
-* **Favorites & History:** Save favorites and track recent games
-* **System Tray:** Minimize to tray with status overlay
-* **Comprehensive Settings:** Full configuration dialog with all options
-* **Better UI Components:** Custom buttons and progress bars with animations
-* **Auto-Update Checking:** GitHub release integration
-* **Layout Persistence:** Remembers window position and size
-* **Improved Architecture:** Enhanced modularity with settings and theme managers
-* **Better Error Handling:** Robust error handling throughout the application
-* **Animated Cat Characters:** Cute animated cats in dummy windows with 6 unique characters
-* **Debug Logging System:** Comprehensive logging for troubleshooting
-* **Help Documentation:** Built-in HTML help guide
-* **Fixed Timer Display:** Timer now shows selected duration correctly
-* **Fixed Progress Bar:** Progress bar updates properly for all quest states
+### Platform / Behavior
+- **Windows-only** — Discord game detection and `.exe` handling are Windows-specific.
+- **Discord must be running** — quests complete only while Discord observes the dummy process.
+- **Dummy executables touch disk** — created in the app directory (or configured path); use Clean Dummies if the app exits abnormally.
+- **Asset-dependent** — missing `assets/` or cat animation folders degrade icons/animations (fallbacks exist but look plain).
+- **Experimental widgets present** — `pixel_*`, `sidebar.py`, `tabs_manager.py`, `layout_manager.py`, `main_window.py`, `main_window_backup.py`, and `progress_bar.py` are alternate/experimental UI pieces; `main_window_simple.py` is the active window.
+
+### Testing Limitations
+- **What a clone can re-check**: `pip install -r requirements.txt`-equivalent deps, `python main.py` on Windows, theme switching, settings persistence, Clean utility.
+- **What a clone cannot re-check**: actual Discord quest crediting (needs a logged-in Discord client + live quest), system-tray behavior on non-Windows, and the GitHub update check against the real releases feed.
+- **Automated tests**: `tests/` contains only `debug_build.py` (build debugging) — there is no unit-test suite.
 
 ---
 
-## 📌 Requirements & Notes
+## 📜 License
 
-* **Python Version:** Requires Python 3.8 or higher
-* **Dependencies:** 
-  * `tkinter` (usually included with Python)
-  * `pillow` (image processing)
-  * `numpy` (array operations)
-  * `psutil` (process management)
-  * `pystray` (system tray)
-* **Asset Dependencies:** Requires icon assets in `assets/` folder and cat animations in `assets/animations/cat/`
-* **Discord Detection:** Requires Discord to be running for quest completion
-* **Windows Only:** Currently designed for Windows operating system
+Discord Quest Manager is distributed under a custom license — see [LICENSE](LICENSE) for the full terms.
 
----
+**Copyright © 2026 Aliester Eroan.**
 
-## 🐛 Known Limitations
-
-* Windows-only application (Discord API and process management are platform-specific)
-* Requires Discord to be running for quest completion detection
-* Dummy executables are created in the application directory
-
----
-
-## 📄 License
-
-This project is provided as-is for educational and personal use.
-
----
-
-## 👤 Author
-
-**Aliester Eroan**
-
-* GitHub: [AliesterEroan](https://github.com/AliesterEroan)
-* Project: [DiscordQuestManager](https://github.com/AliesterEroan/DiscordQuestManager)
+In short: free for personal and educational use, modification allowed for your own use, and code study encouraged — but **no commercial use without explicit permission**, no claiming the software as your own, and the copyright notice must not be removed. The software is provided "as is" without warranty.
 
 ---
 
 ## 🙏 Acknowledgments
 
-* **Catppuccin Theme:** Beautiful color palette by [Catppuccin](https://github.com/catppuccin/catppuccin)
-* **Discord API:** Game detectable registry provided by Discord
-* **PyInstaller:** Application packaging tool
+- **[Catppuccin](https://github.com/catppuccin/catppuccin)** — Mocha and Latte color palettes used by the theme system.
+- **Discord** — detectable-apps registry API that powers game search.
+- **PyInstaller** — packaging tool for standalone executables.
+
+---
+
+## 📧 Contact
+
+- **GitHub**: [AliesterEroan](https://github.com/AliesterEroan)
+- **Project**: [DiscordQuestManager](https://github.com/AliesterEroan/DiscordQuestManager)
+- **Issues**: [Create an issue](https://github.com/AliesterEroan/DiscordQuestManager/issues)
+
+---
+
+*Built with ❤️ by AliesterEroan*
